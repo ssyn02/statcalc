@@ -1,0 +1,44 @@
+.header {
+    padding: 40px;
+    text-align: center;
+    background: #1abc9c;
+    color: white
+}
+
+.header h1 {
+    font-size: 40px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.content {
+    display: none;
+    margin-top: 10px;
+}
+
+.selector {
+    margin-top: 5px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+    appearance: text;
+    -moz-appearance: textfield;
+}
