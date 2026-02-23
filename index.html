@@ -1,100 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <link rel="stylesheet" href="index.css">
         <title>Title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="index.js" defer></script>
+        <script type="module" src="index.js" defer></script>
         <style>
             body {
                 font-family: Arial, Helvetica, sans-serif;
             }
         </style>
     </head>
-<body>
-    <div class="selector">
-        <select name="distributions" id="distributions" required>
-            <option value="" disabled selected hidden>
-                Choose a distribution
-            </option>
-            <optgroup label="Discrete distributions">
-                <option value="degenerate">Degenerate</option>
-                <option value="discrete-uniform">Discrete uniform</option>
-                <option value="binomial">Binomial</option>
-                <option value="poisson">Poisson</option>
-                <option value="hypergeometric">Hypergeometric</option>
-                <option value="negative-binomial">Negative binomial</option>
-            </optgroup>
-            <optgroup label="Continuous distributions">
-                <option value="normal">Normal</option>
-                <option value="exponential">Exponential</option>
-                <option value="uniform">Uniform</option>
-                <option value="gamma">Gamma</option>
-                <option value="chi-squared">Chi-squared</option>
-                <option value="weibull">Weibull</option>
-                <option value="log-normal">Log-normal</option>
-            </optgroup>
-        </select>
-    </div>
+    <body>
+        <div class="selector">
+            <select name="distributions" id="distributions" required>
+                <option value="" disabled selected hidden>
+                    Choose a distribution
+                </option>
+                <optgroup label="Discrete distributions">
+                    <option value="degenerate">Degenerate</option>
+                    <option value="discrete-uniform">Discrete uniform</option>
+                    <option value="binomial">Binomial</option>
+                    <option value="poisson">Poisson</option>
+                    <option value="hypergeometric">Hypergeometric</option>
+                    <option value="negative-binomial">Negative binomial</option>
+                </optgroup>
+                <optgroup label="Continuous distributions">
+                    <option value="normal">Normal</option>
+                    <option value="exponential">Exponential</option>
+                    <option value="uniform">Uniform</option>
+                    <option value="gamma">Gamma</option>
+                    <option value="chi-squared">Chi-squared</option>
+                    <option value="weibull">Weibull</option>
+                    <option value="log-normal">Log-normal</option>
+                </optgroup>
+            </select>
+            <label id="warning" style="color: red"></label>
+        </div>
 
-    <div id="degenerate" class="content">
-        <label>
-            c:
-            <input type="number" id="degenerate-c" min="0">
-        </label>
+        <div id="degenerate" class="content">
+            <label>
+                c:
+                <input type="number" id="degenerate-c" min="0">
+            </label>
 
-        <label>
-            x:
-            <input type="number" id="degenerate-x" min="0">
-        </label>
-    </div>
-    <div id="discrete-uniform" class="content">
-        <label>
-            n:
-            <input type="number" id="discrete-uniform-n" min="0">
-        </label>
+            <label>
+                x:
+                <input type="number" id="degenerate-x" min="0">
+            </label>
+        </div>
+        <div id="discrete-uniform" class="content">
+            <label>
+                n:
+                <input type="number" id="discrete-uniform-n" min="0">
+            </label>
 
-        <label>
-            x:
-            <input type="number" id="discrete-uniform-x" min="0">
-        </label>
-    </div>
-    <div id="binomial" class="content">
-        <label>
-            n:
-            <input type="number" id="binomial-n" min="0">
-        </label>
+            <label>
+                x:
+                <input type="number" id="discrete-uniform-x" min="0">
+            </label>
+        </div>
+        <div id="binomial" class="content">
+            <label>
+                n:
+                <input type="number" id="binomial-n" min="0">
+            </label>
 
-        <label>
-            p:
-            <input type="number" id="binomial-p" min="0" max="1">
-        </label>
+            <label>
+                p:
+                <input type="number" id="binomial-p" min="0" max="1">
+            </label>
 
-        <label>
-            x:
-            <input type="number" id="binomial-x" min="0">
-        </label>
+            <label>
+                x:
+                <input type="number" id="binomial-x" min="0">
+            </label>
 
-        <p>Mean:<span id="binomial-mean">0</span></p>
-        <p>Variance:<span id="binomial-variance">0</span></p>
-        <p>Standard deviation:<span id="binomial-sd">0</span></p>
-    </div>
-    <div id="poisson" class="content">
-        <label>
-            λ:
-            <input type="number" id="poisson-l" min="0">
-        </label>
+            <p>Mean:<span id="binomial-mean">0</span></p>
+            <p>Variance:<span id="binomial-variance">0</span></p>
+            <p>Standard deviation:<span id="binomial-sd">0</span></p>
+            <p>Probability:<span id="binomial-probability">0</span></p>
+            <p>Cumulative probability:<span id="binomial-cumulative">0</span></p>
+        </div>
+        <div id="poisson" class="content">
+            <label>
+                λ:
+                <input type="number" id="poisson-l" min="0">
+            </label>
 
-        <label>
-            x:
-            <input type="number" id="poisson-x" min="0">
-        </label>
+            <label>
+                x:
+                <input type="number" id="poisson-x" min="0">
+            </label>
 
-        <p>Mean:<span id="poisson-mean">0</span></p>
-        <p>Variance:<span id="poisson-variance">0</span></p>
-        <p>Standard deviation:<span id="poisson-sd">0</span></p>
-    </div>
-    
-</body>
+            <p>Mean:<span id="poisson-mean">0</span></p>
+            <p>Variance:<span id="poisson-variance">0</span></p>
+            <p>Standard deviation:<span id="poisson-sd">0</span></p>
+            <p>Probability:<span id="poisson-probability">0</span></p>
+            <p>Cumulative probability:<span id="poisson-cumulative">0</span></p>
+        </div>
+    </body>
 </html>
