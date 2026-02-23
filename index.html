@@ -20,7 +20,6 @@
                 </option>
                 <optgroup label="Discrete distributions">
                     <option value="degenerate">Degenerate</option>
-                    <option value="discrete-uniform">Discrete uniform</option>
                     <option value="binomial">Binomial</option>
                     <option value="poisson">Poisson</option>
                     <option value="hypergeometric">Hypergeometric</option>
@@ -40,43 +39,39 @@
         </div>
 
         <div id="degenerate" class="content">
-            <label>
-                c:
-                <input type="number" id="degenerate-c" min="0">
-            </label>
+            <div class="input-grid">
+                <label>
+                    c:
+                    <input type="number" id="degenerate-c" min="0">
+                </label>
 
-            <label>
-                x:
-                <input type="number" id="degenerate-x" min="0">
-            </label>
-        </div>
-        <div id="discrete-uniform" class="content">
-            <label>
-                n:
-                <input type="number" id="discrete-uniform-n" min="0">
-            </label>
-
-            <label>
-                x:
-                <input type="number" id="discrete-uniform-x" min="0">
-            </label>
+                <label>
+                    x:
+                    <input type="number" id="degenerate-x" min="0">
+                </label>
+            </div>
+            <p>Mean:<span id="degenerate-mean">0</span></p>
+            <p>Variance:<span id="degenerate-variance">0</span></p>
+            <p>Standard deviation:<span id="degenerate-sd">0</span></p>
+            <p>Probability:<span id="degenerate-probability">0</span></p>
         </div>
         <div id="binomial" class="content">
-            <label>
-                n:
-                <input type="number" id="binomial-n" min="0">
-            </label>
+            <div class="input-grid">
+                <label>
+                    n:
+                    <input type="number" id="binomial-n" min="0">
+                </label>
 
-            <label>
-                p:
-                <input type="number" id="binomial-p" min="0" max="1">
-            </label>
+                <label>
+                    p:
+                    <input type="number" id="binomial-p" min="0" max="1">
+                </label>
 
-            <label>
-                x:
-                <input type="number" id="binomial-x" min="0">
-            </label>
-
+                <label>
+                    x:
+                    <input type="number" id="binomial-x" min="0">
+                </label>
+            </div>
             <p>Mean:<span id="binomial-mean">0</span></p>
             <p>Variance:<span id="binomial-variance">0</span></p>
             <p>Standard deviation:<span id="binomial-sd">0</span></p>
@@ -84,21 +79,76 @@
             <p>Cumulative probability:<span id="binomial-cumulative">0</span></p>
         </div>
         <div id="poisson" class="content">
-            <label>
-                λ:
-                <input type="number" id="poisson-l" min="0">
-            </label>
+            <div class="input-grid">
+                <label>
+                    λ:
+                    <input type="number" id="poisson-l" min="0">
+                </label>
 
-            <label>
-                x:
-                <input type="number" id="poisson-x" min="0">
-            </label>
+                <label>
+                    x:
+                    <input type="number" id="poisson-x" min="0">
+                </label>
+            </div>
 
             <p>Mean:<span id="poisson-mean">0</span></p>
             <p>Variance:<span id="poisson-variance">0</span></p>
             <p>Standard deviation:<span id="poisson-sd">0</span></p>
             <p>Probability:<span id="poisson-probability">0</span></p>
             <p>Cumulative probability:<span id="poisson-cumulative">0</span></p>
+        </div>
+        <div id="hypergeometric" class="content">
+            <div class="input-grid">
+                <label>
+                    N:
+                    <input type="number" id="hypergeometric-n" min="0">
+                </label>
+
+                <label>
+                    K:
+                    <input type="number" id="hypergeometric-k" min="0">
+                </label>
+
+                <label>
+                    n:
+                    <input type="number" id="hypergeometric-sample-n" min="0">
+                </label>
+
+                <label>
+                    x:
+                    <input type="number" id="hypergeometric-x" min="0">
+                </label>
+            </div>
+
+            <p>Mean:<span id="hypergeometric-mean">0</span></p>
+            <p>Variance:<span id="hypergeometric-variance">0</span></p>
+            <p>Standard deviation:<span id="hypergeometric-sd">0</span></p>
+            <p>Probability:<span id="hypergeometric-probability">0</span></p>
+            <p>Cumulative probability:<span id="hypergeometric-cumulative">0</span></p>
+        </div>
+        <div id="negative-binomial" class="content">
+            <div class="input-grid">
+                <label>
+                    r:
+                    <input type="number" id="negative-binomial-r" min="0">
+                </label>
+
+                <label>
+                    p:
+                    <input type="number" id="negative-binomial-p" min="0">
+                </label>
+
+                <label>
+                    x:
+                    <input type="number" id="negative-binomial-x" min="0">
+                </label>
+            </div>
+
+            <p>Mean:<span id="negative-binomial-mean">0</span></p>
+            <p>Variance:<span id="negative-binomial-variance">0</span></p>
+            <p>Standard deviation:<span id="negative-binomial-sd">0</span></p>
+            <p>Probability:<span id="negative-binomial-probability">0</span></p>
+            <p>Cumulative probability:<span id="negative-binomial-cumulative">0</span></p>
         </div>
     </body>
 </html>

@@ -28,6 +28,19 @@
     margin-top: 10px;
 }
 
+.input-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px 5px;
+    justify-content: start;
+}
+
+.input-grid label {
+    display: grid;
+    grid-template-columns: 18px auto;
+    align-items: center;
+}
+
 .selector {
     margin-top: 5px;
 }
