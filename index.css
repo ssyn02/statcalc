@@ -14,6 +14,14 @@
     background-color: #333;
 }
 
+.ricky {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    width: 15%;
+}
+
 .navbar a {
     float: left;
     display: block;
@@ -54,4 +62,10 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     appearance: text;
     -moz-appearance: textfield;
+}
+
+.return {
+    position: fixed;
+    top: -10px;
+    right: 20px;
 }
