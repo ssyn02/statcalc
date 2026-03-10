@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () { 
     const dropdown = document.getElementById("distributions")
-
+    const normal_switch = document.getElementById("normal-switch").querySelector("input[type='checkbox']");
     dropdown.addEventListener("change", function () {
 
         document.querySelectorAll(".content").forEach(div => {
@@ -11,14 +11,44 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         document.getElementById("warning").textContent = "";
+        document.getElementById("normal-switch").style.display = "none";
 
         const selected = this.value;
         if (selected) {
             document.getElementById(selected).style.display = "block";
         }
+        if (selected == "normal") {
+            document.getElementById("normal-switch").style.display = "block";
+        }
+    });
+
+    normal_switch.addEventListener("change", function() {
+        if (this.checked) {
+            document.querySelector("#normal-z input").value = 0;
+            document.getElementById("normal-z").style.display = "block";
+            document.querySelector("#normal-mean input").value = 0;
+            document.getElementById("normal-mean").style.display = "none";
+            document.querySelector("#normal-sd input").value = 0;
+            document.getElementById("normal-sd").style.display = "none";
+            document.querySelector("#normal-x input").value = 0;
+            document.getElementById("normal-x").style.display = "none";
+            document.getElementById("normal-probability").textContent = 0;
+
+        } else {
+            document.querySelector("#normal-z input").value = 0;
+            document.getElementById("normal-z").style.display = "none";
+            document.querySelector("#normal-mean input").value = 0;
+            document.getElementById("normal-mean").style.display = "block";
+            document.querySelector("#normal-sd input").value = 0;
+            document.getElementById("normal-sd").style.display = "block";
+            document.querySelector("#normal-x input").value = 0;
+            document.getElementById("normal-x").style.display = "block";
+            document.getElementById("normal-probability").textContent = 0;
+        }
     });
 
     // #region Discrete
+
     function combination(n, x) {
         if (x < 0 || x > n) return 0n;
 
@@ -326,6 +356,56 @@ document.addEventListener("DOMContentLoaded", function () {
     negative_binomial_p.addEventListener("input", updateNegativeBinomial);
     negative_binomial_x.addEventListener("input", updateNegativeBinomial);
     // #endregion
-    // #endregion 
+    // #endregion
+
+    // #region Continuous
+    // #region Normal
+    function erf(x) {
+        const sign = x >= 0 ? 1 : -1;
+        x = Math.abs(x);
+
+        const a1 = 0.254829592;
+        const a2 = -0.284496736;
+        const a3 = 1.421413741;
+        const a4 = -1.453152027;
+        const a5 = 1.061405429;
+        const p = 0.3275911;
+
+        const t = 1 / (1 + p * x);
+        const y = 1 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+
+        return sign * y;
+    }
+
+    function normalProbability(z) {
+        return 0.5 * (1 + erf(z / Math.sqrt(2)));
+    }
+
+    const normal_mean = document.querySelector("#normal-mean input");
+    const normal_sd = document.querySelector("#normal-sd input");
+    const normal_x = document.querySelector("#normal-x input");
+    const normal_z = document.querySelector("#normal-z input");
+
+    function updateNormal() {
+        const mean = Number(normal_mean.value);
+        const sd = Number(normal_sd.value);
+        const x = Number(normal_x.value);
+        let z = Number(normal_z.value);
+
+        if (!(normal_switch.checked)) {
+            z = (x - mean)/sd;
+        }
+
+        const probability = normalProbability(z);
+
+        document.getElementById("normal-probability").textContent = probability.toFixed(4);
+
+    }
+    normal_mean.addEventListener("input", updateNormal);
+    normal_sd.addEventListener("input", updateNormal);
+    normal_x.addEventListener("input", updateNormal);
+    normal_z.addEventListener("input", updateNormal);
+    // #endregion
+    // #endregion
 
 });

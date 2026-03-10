@@ -37,6 +37,10 @@
                 </optgroup>
             </select>
             <label id="warning" style="color: red"></label>
+            <div id="normal-switch" class="switch">
+                Use Z value instead
+                <input type="checkbox">
+            </div>
         </div>
 
         <div id="degenerate" class="content">
@@ -150,6 +154,30 @@
             <p>Standard deviation:<span id="negative-binomial-sd">0</span></p>
             <p>Probability:<span id="negative-binomial-probability">0</span></p>
             <p>Cumulative probability:<span id="negative-binomial-cumulative">0</span></p>
+        </div>
+        <div id="normal" class="content">
+            <div class="input-grid">
+                <label id="normal-z" style="display: none">
+                    z:
+                    <input type="number">
+                </label>
+
+                <label id="normal-mean">
+                    μ:
+                    <input type="number">
+                </label>
+
+                <label id="normal-sd">
+                    σ:
+                    <input type="number">
+                </label>
+
+                <label id="normal-x">
+                    x:
+                    <input type="number">
+                </label>
+            </div>
+            <p>Z < z:<span id="normal-probability">0</span></p>
         </div>
         <div class="return">
             <p><a href="/ssyn02.github.io/">return</a></p>
