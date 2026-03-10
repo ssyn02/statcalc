@@ -406,6 +406,39 @@ document.addEventListener("DOMContentLoaded", function () {
     normal_x.addEventListener("input", updateNormal);
     normal_z.addEventListener("input", updateNormal);
     // #endregion
+    // #region Exponential
+    function exponentialProbability(x, l) {
+        return 1 - Math.exp(-l * x);
+    }
+
+    const exponential_l = document.getElementById("exponential-l");
+    const exponential_x = document.getElementById("exponential-x");
+
+    function updateExponential() {
+        const l = Number(exponential_l.value);
+        const x = Number(exponential_x.value);
+
+        if (x < 0) {
+        document.getElementById("warning").textContent = "x must be ≥ 0";
+        document.getElementById("exponential-probability").textContent = 0;
+        return;
+        }
+
+        if (l < 0) {
+        document.getElementById("warning").textContent = "λ must be ≥ 0";
+        document.getElementById("exponential-probability").textContent = 0;
+        return;
+        }
+
+        document.getElementById("warning").textContent = "";
+
+        const probability = exponentialProbability(x, l);
+
+        document.getElementById("exponential-probability").textContent = probability;
+    }
+    exponential_l.addEventListener("input", updateExponential);
+    exponential_x.addEventListener("input", updateExponential);
+    // #endregion
     // #endregion
 
 });
